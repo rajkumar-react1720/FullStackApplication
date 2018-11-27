@@ -1,0 +1,26 @@
+{
+  "name": "fullstackapplication",
+  "version": "1.0.0",
+  "description": "feedbackApplication",
+  "main": "index.js",
+  "engines": {
+    "node": "8.11.4",
+    "npm" : "6.4.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajkumar-react1720/FullStackApplication.git"
+  },
+  "author": "Rajkumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajkumar-react1720/FullStackApplication/issues"
+  },
+  "homepage": "https://github.com/rajkumar-react1720/FullStackApplication#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
