@@ -5,10 +5,11 @@
   "main": "index.js",
   "engines": {
     "node": "8.11.4",
-    "npm" : "6.4.1"
+    "npm": "6.4.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
   },
   "homepage": "https://github.com/rajkumar-react1720/FullStackApplication#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.2",
+    "nodemon": "^1.18.9",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
   }
 }
