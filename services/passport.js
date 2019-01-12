@@ -19,7 +19,8 @@ passport.use(new GoogleStrategy(
     {
         clientID : keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: '/auth/google/callback'
+        callbackURL: '/auth/google/callback',
+        proxy: true
     }, (accessToken, refreshtoken, profile, done) =>{ // CALL BACK FUNCTION 
         console.log("profile", profile);
         User.findOne({googleId:profile.id}) // MONGO DB QUERY WHICH IS ASYNC OPERATION
