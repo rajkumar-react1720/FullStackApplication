@@ -21,16 +21,14 @@ passport.use(new GoogleStrategy(
         clientSecret: keys.googleClientSecret,
         callbackURL: '/auth/google/callback',
         proxy: true
-    }, (accessToken, refreshtoken, profile, done) =>{ // CALL BACK FUNCTION 
+    }, async (accessToken, refreshtoken, profile, done) =>{ // CALL BACK FUNCTION 
         console.log("profile", profile);
-        User.findOne({googleId:profile.id}) // MONGO DB QUERY WHICH IS ASYNC OPERATION
-            .then(existingUser =>{
-                if (existingUser){
-                    done(null, existingUser) // THIS IS A CALLBACK FUNCTION WHICH TELLS PASSPORT THAT USER IS OPERATION IS DONE 
-                } else {
-                    new User({ googleId:profile.id }).save()
-                        .then(user =>done(null, user))
-                }
-            }) 
+        const existingUser = await User.findOne({googleId:profile.id}) // MONGO DB QUERY WHICH IS ASYNC OPERATION
+            if (existingUser){
+                return done(null, existingUser) // THIS IS A CALLBACK FUNCTION WHICH TELLS PASSPORT THAT USER IS OPERATION IS DONE 
+            } 
+            const user = await new User({ googleId:profile.id }).save()
+            done(null, user)
+
     }
-));
+));  
